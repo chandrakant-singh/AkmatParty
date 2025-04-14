@@ -1,1 +1,615 @@
-/* You can add global styles to this file, and also import other style files */
+/* === Import Bootstrap functions and variables (necessary import both) === */
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+/*-------------------------------------------------------------------*/
+/* Change theme-colors */
+$primary: #040552;
+$secondary: #61E0F9;
+$danger: #E95C5D;
+$success: #00EEB5;
+$info: #0018c0;
+$warning: #FFDD64;
+$dark: #000000;
+
+// font style
+$font-weight-thin: 100 !default;
+$font-weight-extra-light: 200 !default;
+$font-weight-light: 300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semi-bold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-extra-bold: 800 !default;
+$font-weight-black: 900 !default;
+
+
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  info: $info,
+  warning: $warning,
+  danger: $danger,
+  dark: $dark
+);
+/*-------------------------------------------------------------------*/
+/* === Boostrap Main SCSS === */
+@import "bootstrap/scss/bootstrap";
+/*-------------------------------------------------------------------*/
+$font-size-base: 1px !default;
+$white-color: #FFFFFF !default;
+$white-bg: #FFFFFF !default;
+
+body {
+  font-size: $font-size-base;
+  font-family: 'Poppins', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.text-align-end {
+  text-align: end;
+}
+
+.bg-light {
+  background: #F5F5F5 !important;
+  z-index: 0;
+}
+
+.bg-medium {
+  background: #E9F2F5;
+  z-index: 0;
+}
+
+.bg-dark {
+  background: #0B0B0B;
+  z-index: 0;
+}
+
+.fw_600 {
+  font-weight: $font-weight-semi-bold !important;
+}
+
+.fw_500 {
+  font-weight: $font-weight-medium !important;
+}
+
+.outline-solid {
+  outline: solid;
+}
+
+.less-than-normal-font-size {
+  font-size: .9rem;
+}
+
+.bg-cardio-id {
+  background-color: #C5CFDC;
+}
+
+.text-color-main-black {
+  color: #0B0B0B;
+}
+
+.text-color-main-white {
+  color: #FFFFFF !important;
+}
+
+// ============== nav-item ==========================
+
+.nav-item {
+  a {
+    font-style: normal;
+    font-weight: $font-weight-medium;
+    font-size: 14px;
+    line-height: 21px;
+    //text-decoration: none;
+  }
+}
+
+.sub-header-navbar-wrapper {
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+
+// ================= typography ======================
+$font-size-h1: 3.5em !default; // ~ 49px
+$font-size-h2: 2.5em !default; // ~ 35px
+$font-size-h3: 2em !default; // ~ 28px
+$font-size-h4: 1.714em !default; // ~ 24px
+$font-size-h5: 1.57em !default; // ~ 22px
+$font-size-h6: 1em !default; // ~ 14px
+
+h1 {
+  font-style: normal;
+  font-weight: $font-weight-semi-bold;
+  line-height: 130%;
+
+  /* Extra small devices (phones, less than 768px) */
+  font-size: 28px;
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 48px;
+  }
+
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    font-size: 48px;
+  }
+}
+
+h2 {
+
+  font-style: normal;
+  font-weight: $font-weight-semi-bold;
+  line-height: 130%;
+
+  /* Extra small devices (phones, less than 768px) */
+  font-size: 26px;
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 26px;
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 38px;
+  }
+
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    font-size: 38px;
+  }
+}
+
+h3 {
+  font-style: normal;
+  font-weight: $font-weight-medium;
+  line-height: 160%;
+
+  /* Extra small devices (phones, less than 768px) */
+  font-size: 22px;
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 28px;
+  }
+
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    font-size: 28px;
+  }
+}
+
+h4 {
+  font-style: normal;
+  font-weight: $font-weight-medium;
+  line-height: 130%;
+
+  /* Extra small devices (phones, less than 768px) */
+  font-size: 18px;
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 20px;
+  }
+
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    font-size: 20px;
+  }
+}
+
+.sub-header {
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-size: 20px;
+  line-height: 160%;
+  align-self: stretch;
+  opacity: 0.9;
+}
+
+.header-contact-button-text {
+  padding: 8px 19px;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: $font-weight-medium !important;
+}
+
+.footer-contact-button-text {
+  padding: 14px 20px;
+  font-style: normal;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: $font-weight-medium !important;
+}
+
+.regular-text-small {
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-size: 14px;
+  line-height: 160%;
+  color: #000000;
+}
+
+.regular-text-extra-small {
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-size: 12px;
+  line-height: 160%;
+  color: #000000;
+  opacity: 0.8;
+}
+
+.font-size-12px {
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-size: 12px;
+}
+
+.font-size-14px {
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-size: 12px;
+}
+
+.regular-text-medium {
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-size: 16px;
+  line-height: 28.6px;
+  color: #0B0B0B;
+}
+
+.regular-text-large {
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-size: 18px;
+  line-height: 160%;
+  color: #0B0B0B;
+}
+
+.regular-text-extra-large {
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-size: 20px;
+  line-height: 160%;
+  color: #0B0B0B;
+}
+
+.regular-text-semi-bold {
+  font-style: normal;
+  font-weight: $font-weight-semi-bold;
+  font-size: 14px;
+  line-height: 130%;
+  color: #0B0B0B;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+// ================= Spacing ==================
+
+.page-padding-x {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media (min-width: 768px) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+.page-padding-s {
+  padding-left: 20px;
+
+  @media (min-width: 768px) {
+    padding-left: 60px;
+  }
+}
+
+.page-padding-e {
+  padding-right: 20px;
+
+  @media (min-width: 768px) {
+    padding-right: 60px;
+  }
+}
+
+.page-padding-x-lg {
+  padding-left: 0;
+  padding-right: 0;
+
+  @media (min-width: 992px) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+.page-padding-y {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  @media (min-width: 768px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.nav-margin-bottom {
+  padding-bottom: 0;
+  @media (min-width: 992px) {
+    padding-bottom: 54px;
+  }
+}
+
+.header-sub-header-separator-margin {
+  margin-bottom: 10px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+}
+
+.header-padding-y {
+  padding-bottom: 36px;
+
+  @media (min-width: 992px) {
+    padding-bottom: 84px;
+  }
+}
+
+.section-padding-y {
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @media (min-width: 992px) {
+    padding-top: 84px;
+    padding-bottom: 84px;
+  }
+}
+
+.section-padding-y-lg {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  @media (min-width: 992px) {
+    padding-top: 84px;
+    padding-bottom: 84px;
+  }
+}
+
+.section-padding-bottom {
+  padding-bottom: 48px;
+
+  @media (min-width: 992px) {
+    padding-bottom: 84px;
+  }
+}
+
+.section-padding-bottom-lg {
+  padding-bottom: 0;
+
+  @media (min-width: 992px) {
+    padding-bottom: 84px;
+  }
+}
+
+
+.section-padding-top {
+  padding-top: 48px;
+
+  @media (min-width: 992px) {
+    padding-top: 84px;
+  }
+}
+
+.ms-tp-26px {
+  @media (max-width: 768px) {
+    padding-top: 26px !important;
+  }
+}
+// ================= Sizing ===================
+.gpx-logo {
+  width: 51px;
+  height: 20px;
+}
+
+// ================= Button ===================
+$border-thin: 1px !default;
+$btn-round-radius: 2rem !default;
+$padding-round-horizontal: 1.5rem !default;
+
+.no-round-sm {
+   @media (max-width: 991px) {
+     border-radius: 0 !important;
+   }
+}
+
+.btn-round {
+  border-width: $border-thin;
+  border-radius: $btn-round-radius;
+  padding: $padding-round-horizontal, $padding-round-horizontal;
+  font-size: 14px;
+}
+
+.button_disable_background {
+  color: #7B7B7B;
+  border-color: #7B7B7B;
+}
+
+
+// ========== random ==========
+
+
+.current-page a {
+  display: inline-block;
+  position: relative;
+}
+
+.current-page a:after {
+  content: "";
+  height: 2px;
+  width: 1.5em;
+  background-color: white;
+  position: absolute;
+  bottom: -.01em;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.square_4X4_black_square {
+  background: #0B0B0B;
+  color: white;
+  width: 4rem;
+  height: 4rem;
+}
+
+.no_margin {
+  // padding: 0 !important;
+  margin: 0 !important;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.partner-logo-dimension {
+  max-height: 30px;
+}
+
+.gpx_logo_dimension {
+  height: 22px;
+  //max-width: 2rem;
+}
+
+@media all and (max-width: 480px) {
+  .full_width_for_mobile {
+    width: 100%;
+    display: block;
+  }
+}
+
+
+.round-button-text {
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: $font-weight-semi-bold !important;
+}
+
+.tweet-text {
+  font-weight: $font-weight-regular;
+  font-size: 14px;
+}
+
+[class*="navigation-bar-padding"] {
+  padding: 1rem 1rem !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation-bar-padding {
+    padding: 1.2rem 3.7rem !important;
+  }
+}
+
+//
+//.px-6 {
+//  padding-right: 3.7rem !important;
+//  padding-left: 3.7rem !important;
+//}
+
+[class*="px-6"] {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .px-6 {
+    padding-right: 3.7rem !important;
+    padding-left: 3.7rem !important;
+  }
+}
+
+
+.pb-6 {
+  padding-bottom: 7% !important;
+}
+
+//
+//.header-part-padding {
+//  padding-bottom: 7% !important;
+//}
+
+[class*="header-part-padding"] {
+  padding-bottom: 0 !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .header-part-padding {
+    padding-bottom: 7% !important;
+  }
+}
+
+//
+//[class*="hero-image"] {
+//  width: 100%;
+//}
+//
+//@media only screen and (min-width: 992px) {
+//  .hero-image {
+//    width: 85%;
+//  }
+//}
+
+
+.white-dotted-line {
+  border: 1px dashed white;
+  border-bottom: none;
+  opacity: 100%
+}
+
+
+[class*="footer-spacing-lg"] {
+
+}
+
+@media only screen and (min-width: 5120px) {
+  .footer-spacing-lg {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.sidebar {
+  transition: all 0.3s ease-in-out;
+}
+.nav-link.active {
+  background-color: #0d6efd;
+}
+

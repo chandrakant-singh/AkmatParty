@@ -1,0 +1,114 @@
+<!-- main app content -->
+<main class="main-content">
+  <div class="container">
+    <app-header></app-header>
+  </div>
+  <div class="container bg-light p-5 mb-5 rounded">
+    <div class="row">
+      <div class="col-md-5 col-12">
+        <h3> Support Loktantra Abhiyan</h3>
+        <p>
+          Loktantra Abhiyan is committed to a singular mission: passing a constitutional amendment to bring reasonable
+          limits on political funding and ensure that every Indian citizen’s voice has equal value in our democracy.
+
+          With growing public support and an urgent need for reform, we are at a pivotal moment to bring lasting change
+          — to strengthen our democracy for today and for future generations.
+
+          Note: Contributions to Loktantra Abhiyan are not eligible for tax deductions. Your support helps power our
+          citizen-led advocacy and public awareness efforts. Loktantra Abhiyan is a non-profit, registered under Section
+          8 of the Companies Act.
+        </p>
+      </div>
+      <div class="offset-md-1 col-md-6 col-12">
+        <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
+          <h3>Choose your donation frequency</h3>
+          <div class="btn-group w-100 mb-3" role="group">
+            <button *ngFor="let freq of frequencies" class="btn" [ngClass]="{
+                  'btn-primary': selectedFrequency === freq,
+                  'btn-outline-primary': selectedFrequency !== freq
+                }" (click)="selectFrequency(freq)">
+              {{ freq }}
+            </button>
+          </div>
+
+          <h5>Donation Amount <span class="text-danger">*</span></h5>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <button *ngFor="let amt of amounts" class="btn" [ngClass]="{
+                  'btn-primary': selectedAmount === amt,
+                  'btn-outline-dark': selectedAmount !== amt
+                }" (click)="selectAmount(amt)">
+              INR₹ {{ amt.toFixed(2) }}
+            </button>
+          </div>
+
+          <div class="mb-3">
+            <input type="number" class="form-control" placeholder="Enter custom amount" formControlName="customAmount"
+              (input)="onCustomAmountChange($event)" />
+          </div>
+
+          <div class="mb-4">
+            <div class="btn-group" role="group">
+              <button class="btn" [ngClass]="{
+                    'btn-secondary': selectedCurrency === 'INR',
+                    'btn-outline-secondary': selectedCurrency !== 'INR'
+                  }" (click)="selectCurrency('INR')">
+                INR₹
+              </button>
+              <button class="btn" [ngClass]="{
+                    'btn-secondary': selectedCurrency === 'US$',
+                    'btn-outline-secondary': selectedCurrency !== 'US$'
+                  }" (click)="selectCurrency('US$')">
+                US$
+              </button>
+            </div>
+          </div>
+
+          <h4>Your Information</h4>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Email" formControlName="email">
+          </div>
+
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Phone (optional)" formControlName="phone">
+          </div>
+
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Address" formControlName="address">
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <input type="text" class="form-control" placeholder="City" formControlName="city">
+            </div>
+            <div class="col-md-4 mb-3">
+              <input type="text" class="form-control" placeholder="State" formControlName="state">
+            </div>
+            <div class="col-md-4 mb-3">
+              <input type="text" class="form-control" placeholder="ZIP" formControlName="zip">
+            </div>
+          </div>
+
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" formControlName="consent" id="consentCheck">
+            <label class="form-check-label" for="consentCheck">
+              I agree to the terms and conditions
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Donate Now</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</main>

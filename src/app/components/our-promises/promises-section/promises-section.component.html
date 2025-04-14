@@ -1,0 +1,83 @@
+<section class="bg-light text-justify py-5 px-3">
+  <div class="row">
+    <!-- Vertical Tabs -->
+    <div class="col-12 col-md-3 mb-3 mb-md-0">
+      <div class="nav flex-md-column nav-pills" role="tablist">
+        <button class="nav-link w-100" [ngClass]="{ 'active bg-primary': selectedTab === 'freedom' }"
+          (click)="selectTab('freedom')">
+          Freedom
+        </button>
+        <button class="nav-link w-100" [ngClass]="{ 'active bg-primary': selectedTab === 'equality' }"
+          (click)="selectTab('equality')">
+          Equality
+        </button>
+        <button class="nav-link w-100" [ngClass]="{ 'active bg-primary': selectedTab === 'service' }"
+          (click)="selectTab('service')">
+          Service
+        </button>
+        <button class="nav-link w-100" [ngClass]="{ 'active bg-primary': selectedTab === 'invention' }"
+          (click)="selectTab('invention')">
+          Invention
+        </button>
+        <button class="nav-link w-100" [ngClass]="{ 'active bg-primary': selectedTab === 'competition' }"
+          (click)="selectTab('competition')">
+          Competition
+        </button>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="col-12 col-md-9">
+      <ng-container *ngFor="let promise of ourPromises">
+        <div *ngIf="selectedTab === promise.topic">
+          <div class="row promise-container">
+            <div class="col-md-6 col-12 promise-overview-container">
+              <div class="mb-3">
+                <span class="badge bg-primary text-uppercase promise-overview-badge">{{ promise.content.promiseOverview.badge }}</span>
+              </div>
+              <div class="promise-overview-heading">
+                <h3 class="fw-bold">{{promise.content.promiseOverview.heading}}</h3>
+              </div>
+              <div class="promise-overview-content">
+                <p>
+                  {{promise.content.promiseOverview.contents}}
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-12 promise-description-container">
+              <div class="promise-description-heading">
+                <h3 class="fw-bold">{{promise.content.promiseDescription.heading}}</h3>
+              </div>
+              <span class="badge bg-danger text-uppercase my-2 promise-description-badge">{{promise.content.promiseDescription.badge}}</span>
+
+              <div class="ratio ratio-16x9 mt-3 promise-description-video">
+                <iframe src="https://www.youtube.com/embed/s3_2Ifv69Hs" title="YouTube video" allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-description mt-4 promise-description-content">
+                <p>
+                  @for (text of promise.content.promiseDescription.contents; track $index) {
+                    {{text}}
+                    <br>
+                    <br>
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+
+      <div *ngIf="selectedTab === 'equality'">
+        <h4>Reports</h4>
+        <p>This is the reports content.</p>
+      </div>
+
+      <div *ngIf="selectedTab === 'service'">
+        <h4>Settings</h4>
+        <p>This is the settings content.</p>
+      </div>
+    </div>
+  </div>
+</section>
