@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-8 col-12">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th>Name</th>
+              <th>Mobile No</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; let i = index">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{ user.name }}</td>
+              <td>{{ user.mobile }}</td>
+              <td>{{ user.state }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

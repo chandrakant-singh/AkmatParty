@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import { FirebaseService } from '../../../services/firestore-service.service';
+import * as bootstrap from 'bootstrap';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
   joinForm!: FormGroup;
   states = [
     'Select state', 'Uttar Pradesh'
@@ -16,7 +16,8 @@ export class HeaderComponent {
 
   constructor(
     private fb: FormBuilder,
-  ) {}
+    private readonly firebaseService: FirebaseService
+  ) { }
 
 
   ngOnInit(): void {
@@ -30,15 +31,15 @@ export class HeaderComponent {
   }
 
   onSubmit(): void {
-    if (this.joinForm.valid) {
-      console.log('Form submitted:', this.joinForm.value);
-      this.submitFormToGoogleSheet();
-    } else {
-      this.joinForm.markAllAsTouched();
-    }
+    // if (this.joinForm.valid) {
+    //   console.log('Form submitted:', this.joinForm.value);
+    this.submitForm();
+    // } else {
+    //   this.joinForm.markAllAsTouched();
+    // }
   }
 
-  submitFormToGoogleSheet() {
+  submitForm() {
     const formData = {
       state: this.joinForm.get('state')?.value,
       name: this.joinForm.get('name')?.value,
@@ -47,6 +48,18 @@ export class HeaderComponent {
       consent: this.joinForm.get('consent')?.value
     };
 
+    this.firebaseService.addUser(formData).then(() => {
+      console.log('Form submitted successfully');
+      // Optionally, you can reset the form after successful submission
+      this.joinForm.reset();
+      this.closeDialog();
+    }).catch((error) => {
+      console.error('Error submitting form:', error);
+    });
+  }
+
+  closeDialog() {
+    window.location.reload()
   }
 
 }
